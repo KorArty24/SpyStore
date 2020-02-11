@@ -1,7 +1,6 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 using SpyStore.Dal.EfStructures.MigrationHelpers;
-namespace SpyStore.Dal.Migrations
+namespace SpyStore.Dal.EfStructures.Migrations
 {
     public partial class TSQL : Migration
     {
@@ -11,8 +10,6 @@ namespace SpyStore.Dal.Migrations
             ViewsHelper.CreateCartRecordWithProductInfoView(migrationBuilder);
             FunctionsHelper.CreateOrderTotalFunction(migrationBuilder);
             SprocsHelper.CreatePurchaseSproc(migrationBuilder);
-
-            
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

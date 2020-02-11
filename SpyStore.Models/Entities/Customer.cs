@@ -15,8 +15,8 @@ namespace SpyStore.Models.Entities
         [Required]
         [EmailAddress]
         [DataType(DataType.EmailAddress), MaxLength(50)]
-        [Display(Name="Email Adress")]
-        public string EmailAdress { get; set; }
+        [Display(Name="Email Address")]
+        public string EmailAddress { get; set; }
         [Required]
         [DataType(DataType.Password), MaxLength(50)]
         public string Password { get; set; }

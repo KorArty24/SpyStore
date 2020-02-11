@@ -17,5 +17,9 @@ namespace SpyStore.Models.Entities.Base
         [Display(Name ="Customer")]
         public int CustomerId { get; set; }
 
+        [Display(Name = "Total")]
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+        public decimal OrderTotal { get; set; }
+
     }
 }

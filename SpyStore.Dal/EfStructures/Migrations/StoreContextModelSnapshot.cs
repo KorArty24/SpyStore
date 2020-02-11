@@ -3,17 +3,15 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SpyStore.Dal.EfStructures;
 
-namespace SpyStore.Dal.Migrations
+namespace SpyStore.Dal.EfStructures.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    [Migration("20200207141313_TSQL")]
-    partial class TSQL
+    partial class StoreContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -49,7 +47,7 @@ namespace SpyStore.Dal.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("EmailAdress")
+                    b.Property<string>("EmailAddress")
                         .IsRequired()
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
@@ -70,6 +68,10 @@ namespace SpyStore.Dal.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("EmailAddress")
+                        .IsUnique()
+                        .HasName("IX_Customers");
+
                     b.ToTable("Customers","Store");
                 });
 
@@ -84,10 +86,19 @@ namespace SpyStore.Dal.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime>("OrderDate")
-                        .HasColumnType("datetime2");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime")
+                        .HasDefaultValueSql("getdate()");
+
+                    b.Property<decimal>("OrderTotal")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("money")
+                        .HasComputedColumnSql("Store.GetOrderTotal([Id])");
 
                     b.Property<DateTime>("ShipDate")
-                        .HasColumnType("datetime2");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime")
+                        .HasDefaultValueSql("getdate()");
 
                     b.Property<byte[]>("TimeStamp")
                         .IsConcurrencyToken()
@@ -108,6 +119,11 @@ namespace SpyStore.Dal.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<decimal>("LineItemTotal")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("money")
+                        .HasComputedColumnSql("[Quantity]*[UnitCost]");
+
                     b.Property<int>("OrderId")
                         .HasColumnType("int");
 
@@ -123,7 +139,7 @@ namespace SpyStore.Dal.Migrations
                         .HasColumnType("rowversion");
 
                     b.Property<decimal>("UnitCost")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("money");
 
                     b.HasKey("Id");
 

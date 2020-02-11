@@ -8,6 +8,7 @@ namespace SpyStore.Models.Entities.Base
 {
     public class OrderDetailBase :EntityBase
     {
+
         [Required]
         public int OrderId { get; set; }
         [Required]
@@ -15,10 +16,9 @@ namespace SpyStore.Models.Entities.Base
         [Required]
         public int Quantity { get; set; }
         [Required, DataType(DataType.Currency), Display(Name = "Unit Cost")]
-
-
-
-
         public decimal UnitCost { get; set; }
+        [DataType(DataType.Currency), Display(Name = "Total")]
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+        public decimal LineItemTotal { get; set; }
     }
 }

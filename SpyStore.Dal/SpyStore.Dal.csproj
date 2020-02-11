@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="EfStructures\Migrations\" />
     <Folder Include="Migrations\" />
   </ItemGroup>
 
