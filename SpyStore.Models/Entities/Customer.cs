@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Newtonsoft.Json;
 using SpyStore.Models.Entities.Base;
-
+using SpyStore.Models.ViewModels;
 
 namespace SpyStore.Models.Entities
 {
@@ -23,7 +23,7 @@ namespace SpyStore.Models.Entities
 
         [InverseProperty(nameof(Order.CustomerNavigation))]
         [JsonIgnore]
-        public List<Order> Orders { get; set; } = new List<Order>();
+        public List<OrderDetailWithProductInfo> Orders { get; set; } = new List<OrderDetailWithProductInfo>();
         [InverseProperty(nameof(ShoppingCartRecord.CustomerNavigation))]
         [JsonIgnore]
         public List<ShoppingCartRecord> ShoppingCartRecords { get; set; } =

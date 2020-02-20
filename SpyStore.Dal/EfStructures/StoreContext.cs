@@ -1,15 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using Microsoft.EntityFrameworkCore;
 using SpyStore.Models.Entities;
 using SpyStore.Models.Entities.Base;
-
+using SpyStore.Models.ViewModels;
 namespace SpyStore.Dal.EfStructures
 {
     public class StoreContext : DbContext
     {
         public int CustomerId { get; set; }
+        public DbSet<CartRecordWithProductInfo> CartRecordWithProductInfos
+        { get; set; }
+        public DbSet<OrderDetailWithProductInfo> OrderDetailWithProductInfos
+        { get; set; }
 
         public StoreContext(DbContextOptions<StoreContext> options) : base(options)
         {
@@ -24,13 +26,17 @@ namespace SpyStore.Dal.EfStructures
 
         public DbSet<Category> Categories { get; set; }
         public DbSet<Customer> Customers { get; set; }
-        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderDetailWithProductInfo> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<ShoppingCartRecord> ShoppingCartRecords { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<CartRecordWithProductInfo>().HasNoKey().ToView("CartRecordWithProductInfo", "Store");
+
+            modelBuilder.Entity<OrderDetailWithProductInfo>().HasNoKey().ToView("OrderDetailWithProductInfo", "Store");
+
             modelBuilder.Entity<Customer>(entity =>
             {
                 entity.HasIndex(e => e.EmailAddress).HasName("IX_Customers").IsUnique();

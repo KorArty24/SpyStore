@@ -32,5 +32,6 @@ namespace SpyStore.Models.Entities
         = new List<OrderDetail>();
         [NotMapped]
         public string CategoryName => CategoryNavigation?.CategoryName;
+
     }
 }
