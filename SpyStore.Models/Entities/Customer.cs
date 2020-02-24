@@ -23,10 +23,9 @@ namespace SpyStore.Models.Entities
 
         [InverseProperty(nameof(Order.CustomerNavigation))]
         [JsonIgnore]
-        public List<OrderDetailWithProductInfo> Orders { get; set; } = new List<OrderDetailWithProductInfo>();
+        public List<Order> Orders { get; set; } = new List<Order>();
         [InverseProperty(nameof(ShoppingCartRecord.CustomerNavigation))]
         [JsonIgnore]
-        public List<ShoppingCartRecord> ShoppingCartRecords { get; set; } =
-            new List<ShoppingCartRecord>();
+        public List<ShoppingCartRecord> ShoppingCartRecords { get; set; } = new List<ShoppingCartRecord>();
     }
 }

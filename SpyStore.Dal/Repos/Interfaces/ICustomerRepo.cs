@@ -7,5 +7,6 @@ namespace SpyStore.Dal.Repos.Interfaces
 {
     public interface ICustomerRepo: IRepo<Customer>
     {
+
     }
 }
