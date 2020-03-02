@@ -9,6 +9,6 @@ namespace SpyStore.Dal.Repos.Interfaces
     public interface IOrderRepo: IRepo<Order>
     {
         IList<Order> GetOrderHistory();
-        OrderWithDetailsAndProductInfo GetoOneWithDetails(int orderId);
+        OrderWithDetailsAndProductInfo GetOneWithDetails(int orderId);
     }
 }

@@ -8,7 +8,6 @@ namespace SpyStore.Dal.Repos.Interfaces
 {
     public interface IOrderDetailRepo: IRepo<OrderDetail>
     {
-        IEnumerable<OrderDetailWithProductInfo>
-           GetOrderDetailWithProductInfoForOrder(int orderId);
+        IEnumerable<OrderDetailWithProductInfo> GetOrderDetailsWithProductInfoForOrder(int orderId);
     }
 }

@@ -21,7 +21,7 @@ namespace SpyStore.Dal.Repos
         {
         }
 
-        public IEnumerable<OrderDetailWithProductInfo> GetOrderDetailWithProductInfoForOrder(int orderId)
+        public IEnumerable<OrderDetailWithProductInfo> GetOrderDetailsWithProductInfoForOrder(int orderId)
 
             => Context.OrderDetailWithProductInfos.Where(x => x.OrderId == orderId).OrderBy(x => x.ModelName);
         

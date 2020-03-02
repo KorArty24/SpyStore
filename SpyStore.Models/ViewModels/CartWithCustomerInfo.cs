@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using SpyStore.Models.Entities;
-using System.Collections.Generic;
+
 
 namespace SpyStore.Models.ViewModels
 {

@@ -17,7 +17,7 @@ namespace SpyStore.Dal.Repos
     public class ShoppingCartRepo : RepoBase<ShoppingCartRecord>, IShoppingCartRepo
 
     {
-        private readonly StoreContext context;
+        
         private readonly IProductRepo productRepo;
         private readonly ICustomerRepo customerRepo;
 
@@ -106,7 +106,7 @@ namespace SpyStore.Dal.Repos
             };
             try
             {
-                Context.Database.ExecuteSqlCommand(
+                Context.Database.ExecuteSqlRaw(
                 "EXEC [Store].[PurchaseItemsInCart] @customerId, @orderid out",
                 customerIdParam, orderIdParam);
             }
@@ -133,7 +133,7 @@ namespace SpyStore.Dal.Repos
             {
                 return Delete(entity, persist);
             }
-            if (entity.Quantity > product.UnitsInStock {
+            if (entity.Quantity > product.UnitsInStock) {
                 throw new SpyStoreInvalidQuantityException("Can't add more products than availible in stock");
 
             }

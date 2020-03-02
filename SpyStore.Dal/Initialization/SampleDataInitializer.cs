@@ -25,14 +25,14 @@ namespace SpyStore.Dal.Initialization
             {
                 var rawSqlString = $"DBCC CHECKIDENT (\"Store.{itm}\", RESEED, 0);";
 #pragma warning disable EF1000 // Possible SQL injection vulnerability.
-                context.Database.ExecuteSqlCommand(rawSqlString);
+                context.Database.ExecuteSqlRaw(rawSqlString);
 #pragma warning restore EF1000 // Possible SQL injection vulnerability.
             }
         }
         public static void ClearData(StoreContext context)
         {
-            context.Database.ExecuteSqlCommand("Delete from Store.Categories");
-            context.Database.ExecuteSqlCommand("Delete from Store.Customers");
+            context.Database.ExecuteSqlRaw("Delete from Store.Categories");
+            context.Database.ExecuteSqlRaw("Delete from Store.Customers");
             ResetIdentity(context);
         }
 

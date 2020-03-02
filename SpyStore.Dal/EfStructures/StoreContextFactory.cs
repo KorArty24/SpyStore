@@ -12,7 +12,7 @@ namespace SpyStore.Dal.EfStructures
             var optionsBuilder = new DbContextOptionsBuilder<StoreContext>();
             var connectionString = @"Server=.,5433;Database=SpyStore21; User ID=sa;Password=P@ssw0rd;MultipleActiveResultSets=true;";
             optionsBuilder.UseSqlServer(connectionString, options => options.EnableRetryOnFailure());
-            optionsBuilder.ConfigureWarnings(warnings => warnings.Throw(RelationalEventId.QueryClientEvaluationWarning));
+            //optionsBuilder.ConfigureWarnings(warnings => warnings.Throw(RelationalEventId.QueryClientEvaluationWarning));
             Console.WriteLine(connectionString);
             return new StoreContext(optionsBuilder.Options);
         }
