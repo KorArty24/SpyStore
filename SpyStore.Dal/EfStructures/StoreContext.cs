@@ -8,22 +8,20 @@ namespace SpyStore.Dal.EfStructures
     public class StoreContext : DbContext
     {
         public int CustomerId { get; set; }
-        public DbSet<CartRecordWithProductInfo> CartRecordWithProductInfos
-        { get; set; }
-        public DbSet<OrderDetailWithProductInfo> OrderDetailWithProductInfos
-        { get; set; }
-
         public StoreContext(DbContextOptions<StoreContext> options) : base(options)
         {
         }
-
+                   
         [DbFunction("GetOrderTotal", Schema = "Store")]
         public static int GetOrderTotal(int orderId)
         {
             //code in here doesn’t matter since it never gets executed
             throw new Exception();
         }
-
+        public DbSet<CartRecordWithProductInfo> CartRecordWithProductInfos
+        { get; set; }
+        public DbSet<OrderDetailWithProductInfo> OrderDetailWithProductInfos
+        { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Order> Orders { get; set; }
@@ -33,6 +31,9 @@ namespace SpyStore.Dal.EfStructures
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Query<CartRecordWithProductInfo>().ToView("CartRecordWithProductInfo", "Store");
+            modelBuilder.Query<OrderDetailWithProductInfo>().ToView("OrderDetailWithProductInfo", "Store");
+
             modelBuilder.Entity<CartRecordWithProductInfo>().HasNoKey().ToView("CartRecordWithProductInfo", "Store");
 
             modelBuilder.Entity<OrderDetailWithProductInfo>().HasNoKey().ToView("OrderDetailWithProductInfo", "Store");
