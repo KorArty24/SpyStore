@@ -57,8 +57,8 @@ namespace SpyStore.Service {
                     builder
                     .AllowAnyHeader()
                     .AllowAnyMethod()
-                    .AllowAnyOrigin()
-                    .AllowCredentials();
+                    .AllowAnyOrigin();
+                 //   .AllowCredentials();
                 });
             });
             services.AddDbContextPool<StoreContext>(options => options.UseSqlServer(Configuration.GetConnectionString("SpyStore")));

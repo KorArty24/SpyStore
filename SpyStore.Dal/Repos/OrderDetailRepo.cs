@@ -17,7 +17,7 @@ namespace SpyStore.Dal.Repos
         {
         }
 
-        public OrderDetailRepo(DbContextOptions<StoreContext> options) : base(options)
+        internal OrderDetailRepo(DbContextOptions<StoreContext> options) : base(options)
         {
         }
 
