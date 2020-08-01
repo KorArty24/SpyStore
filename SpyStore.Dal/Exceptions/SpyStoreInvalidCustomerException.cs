@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SpyStore.Dal.Exceptions
 {
-    class SpyStoreInvalidCustomerException: SpyStoreException
+    public class SpyStoreInvalidCustomerException: SpyStoreException
     {
         public SpyStoreInvalidCustomerException()
         {}

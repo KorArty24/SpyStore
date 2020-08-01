@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System;
+using System.Text.Json;
 using System.IO;
 using System.Reflection;
 using SpyStore.Dal;
@@ -27,6 +28,7 @@ using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 using SpyStore.Dal.EfStructures;
 using Swashbuckle.Swagger;
 using Microsoft.OpenApi.Models;
+using SpyStore.Service.Filters;
 
 namespace SpyStore.Service { 
 
@@ -45,10 +47,11 @@ namespace SpyStore.Service {
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers().AddNewtonsoftJson().AddJsonOptions(opt => opt.JsonSerializerOptions.PropertyNamingPolicy = null);
-            services.AddMvc().AddNewtonsoftJson(options =>
-            options.SerializerSettings.ContractResolver =
-              new CamelCasePropertyNamesContractResolver());
+            services.AddControllersWithViews(config => config.Filters.Add(new SpyStoreExceptionFilter(_env)))
+                .AddNewtonsoftJson(options => 
+                options.SerializerSettings.ContractResolver =
+                  new CamelCasePropertyNamesContractResolver()).AddJsonOptions(opt => opt.JsonSerializerOptions.PropertyNamingPolicy = null);
+            
             // http://docs.asp.net/en/latest/security/cors.html
             services.AddCors(options =>
             {

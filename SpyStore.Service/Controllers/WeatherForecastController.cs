@@ -8,7 +8,8 @@ using Microsoft.Extensions.Logging;
 namespace SpyStore.Service.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    // [Route("[controller]")]
+    [Route("api/[controller]")]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
@@ -23,17 +24,22 @@ namespace SpyStore.Service.Controllers
             _logger = logger;
         }
 
-        [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
+        [HttpGet("{id}")]
+        public ActionResult<string> Get(int id)
         {
-            var rng = new Random();
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
-            })
-            .ToArray();
+            throw new Exception("Test Exception");
+            return "value";
         }
+        //public IEnumerable<WeatherForecast> Get()
+        //{
+        //  var rng = new Random();
+        //return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+        //{
+        //  Date = DateTime.Now.AddDays(index),
+        // TemperatureC = rng.Next(-20, 55),
+        //Summary = Summaries[rng.Next(Summaries.Length)]
+        //})
+        //    .ToArray();
+        //}
     }
 }
