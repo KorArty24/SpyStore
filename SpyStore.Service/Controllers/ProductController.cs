@@ -27,7 +27,7 @@ namespace SpyStore.Service.Controllers
             }
             return Ok(item);
         }
-        [HttpGet("featured", Name = "GetFeaturedProducts"]
+        [HttpGet("featured", Name = "GetFeaturedProducts")]
         [Produces("application/json")]
         [ProducesResponseType(200)]
         [ProducesResponseType(500)]

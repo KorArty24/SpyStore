@@ -1,19 +1,21 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26124.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpyStore.Dal", "SpyStore.Dal\SpyStore.Dal.csproj", "{B5876A44-07AA-41B6-93E5-2501442CAC74}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpyStore.Dal", "SpyStore.Dal\SpyStore.Dal.csproj", "{B5876A44-07AA-41B6-93E5-2501442CAC74}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpyStore.Models", "SpyStore.Models\SpyStore.Models.csproj", "{D6AD6A1F-3E23-4755-878F-ED96BD64E7A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpyStore.Models", "SpyStore.Models\SpyStore.Models.csproj", "{D6AD6A1F-3E23-4755-878F-ED96BD64E7A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpyStore.Dal.Tests", "SpyStore.Dal.Tests\SpyStore.Dal.Tests.csproj", "{66DA2F16-FA6A-4542-AB95-0C38E85068AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpyStore.Dal.Tests", "SpyStore.Dal.Tests\SpyStore.Dal.Tests.csproj", "{66DA2F16-FA6A-4542-AB95-0C38E85068AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpyStore.Service.Tests", "SpyStore.Service.Tests\SpyStore.Service.Tests.csproj", "{535D912B-EC24-4ECA-85C2-7E52293D8D72}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpyStore.Service.Tests", "SpyStore.Service.Tests\SpyStore.Service.Tests.csproj", "{535D912B-EC24-4ECA-85C2-7E52293D8D72}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpyStore.Service", "SpyStore.Service\SpyStore.Service.csproj", "{179E39EB-11C1-457E-A455-204E71643D2D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpyStore.Service", "SpyStore.Service\SpyStore.Service.csproj", "{179E39EB-11C1-457E-A455-204E71643D2D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpyStore.Mvc", "SpyStore.Mvc\SpyStore.Mvc.csproj", "{FAFCF670-F8A8-4B7F-86C6-7B5608A1D512}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpyStore.Mvc", "SpyStore.Mvc\SpyStore.Mvc.csproj", "{FAFCF670-F8A8-4B7F-86C6-7B5608A1D512}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{7D1BE520-656E-46D0-A642-3224B33D260C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,9 +25,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{B5876A44-07AA-41B6-93E5-2501442CAC74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -100,5 +99,23 @@ Global
 		{FAFCF670-F8A8-4B7F-86C6-7B5608A1D512}.Release|x64.Build.0 = Release|Any CPU
 		{FAFCF670-F8A8-4B7F-86C6-7B5608A1D512}.Release|x86.ActiveCfg = Release|Any CPU
 		{FAFCF670-F8A8-4B7F-86C6-7B5608A1D512}.Release|x86.Build.0 = Release|Any CPU
+		{7D1BE520-656E-46D0-A642-3224B33D260C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D1BE520-656E-46D0-A642-3224B33D260C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D1BE520-656E-46D0-A642-3224B33D260C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{7D1BE520-656E-46D0-A642-3224B33D260C}.Debug|x64.Build.0 = Debug|Any CPU
+		{7D1BE520-656E-46D0-A642-3224B33D260C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7D1BE520-656E-46D0-A642-3224B33D260C}.Debug|x86.Build.0 = Debug|Any CPU
+		{7D1BE520-656E-46D0-A642-3224B33D260C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D1BE520-656E-46D0-A642-3224B33D260C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D1BE520-656E-46D0-A642-3224B33D260C}.Release|x64.ActiveCfg = Release|Any CPU
+		{7D1BE520-656E-46D0-A642-3224B33D260C}.Release|x64.Build.0 = Release|Any CPU
+		{7D1BE520-656E-46D0-A642-3224B33D260C}.Release|x86.ActiveCfg = Release|Any CPU
+		{7D1BE520-656E-46D0-A642-3224B33D260C}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F8632E5D-2117-48A8-ADFE-70B0FE6ADEE6}
 	EndGlobalSection
 EndGlobal
