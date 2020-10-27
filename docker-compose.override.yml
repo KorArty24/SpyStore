@@ -2,7 +2,17 @@ version: '3.4'
 
 services:
   spystore.service:
+  #...
+    ports:
+      - "51080:80"
+      - "51443:443"
+    #...
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
+      #...
+      - spystore.serviceBaseAddress=http://spystore
+    ports:
+      - "50080:80"
+      - "50443:443"
+    #...
     ports:
       - "80"

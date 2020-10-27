@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel.DataAnnotations.Schema;
 using SpyStore.Models.Entities.Base;
-using Newtonsoft.Json;
+using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
+using System.Text.Json.Serialization;
 
 namespace SpyStore.Models.Entities
 

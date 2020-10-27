@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Net.Http;
-using Newtonsoft.Json;
 using SpyStore.Models.Entities;
 using SpyStore.Service.Tests.TestClasses.Base;
 using Xunit;
 using System.Net;
+using System.Text.Json.Serialization;
+using System.Text.Json;
 
 namespace SpyStore.Service.Tests.TestClasses
 {
@@ -24,7 +25,7 @@ namespace SpyStore.Service.Tests.TestClasses
             {
                 var response = await client.GetAsync($"{ServiceAddress}{RootAdress}");
                 var jsonResponse = await response.Content.ReadAsStringAsync();
-                var customers = JsonConvert.DeserializeObject<List<Customer>>(jsonResponse);
+                var customers = JsonSerializer.Deserialize<List<Customer>>(jsonResponse);
                 Assert.Single(customers);
                 
 
@@ -38,7 +39,7 @@ namespace SpyStore.Service.Tests.TestClasses
             {
                 var response = await client.GetAsync($"{ServiceAddress}{RootAdress}");
                 var jsonResponse = await response.Content.ReadAsStringAsync();
-                var customer = JsonConvert.DeserializeObject<Customer>(jsonResponse);
+                var customer = JsonSerializer.Deserialize<Customer>(jsonResponse);
                 Assert.Equal("Super Spy", customer.FullName);
             }
         }
