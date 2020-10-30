@@ -20,6 +20,11 @@ namespace SpyStore.Service.Controllers
         {
             _repo = repo;
         }
+        [HttpGet("{recordId}", Name = "GetShoppingCartRecord")]
+        [Produces("application/json")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
         public ActionResult<CartRecordWithProductInfo> GetShoppingCartRecord(int recordId)
         {
             CartRecordWithProductInfo cartRecordWithProductInfo = _repo.GetShoppingCartRecord(recordId);

@@ -18,6 +18,11 @@ namespace SpyStore.Service.Controllers
         {
             _repo = repo;
         }
+        [HttpGet("{id}", Name = "GetProduct")]
+        [Produces("application/json")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
         public ActionResult<Product> Get(int id)
         {
             Product item = _repo.GetOneWithCategoryName(id);
