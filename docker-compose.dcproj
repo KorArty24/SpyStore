@@ -3,7 +3,7 @@
   <PropertyGroup Label="Globals">
     <ProjectVersion>2.1</ProjectVersion>
     <DockerTargetOS>Linux</DockerTargetOS>
-    <ProjectGuid>7b99064a-3b8b-46f1-8442-7ab4a9af199b</ProjectGuid>
+    <ProjectGuid>af43b01e-1f7f-4358-8396-8f254005addb</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
     <DockerServiceUrl>{Scheme}://localhost:{ServicePort}/swagger</DockerServiceUrl>
     <DockerServiceName>spystore.service</DockerServiceName>

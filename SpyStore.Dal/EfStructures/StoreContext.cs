@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using SpyStore.Models.Entities;
 using SpyStore.Models.Entities.Base;
 using SpyStore.Models.ViewModels;
+
 namespace SpyStore.Dal.EfStructures
 {
     public class StoreContext : DbContext
@@ -22,6 +23,7 @@ namespace SpyStore.Dal.EfStructures
         { get; set; }
         public DbSet<OrderDetailWithProductInfo> OrderDetailWithProductInfos
         { get; set; }
+
         public DbSet<Category> Categories { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Order> Orders { get; set; }
@@ -31,8 +33,9 @@ namespace SpyStore.Dal.EfStructures
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Query<CartRecordWithProductInfo>().ToView("CartRecordWithProductInfo", "Store");
-            modelBuilder.Query<OrderDetailWithProductInfo>().ToView("OrderDetailWithProductInfo", "Store");
+            modelBuilder.Entity<CartRecordWithProductInfo>().HasNoKey().ToView("CartRecordWithProductInfo", "Store");
+
+            modelBuilder.Entity<OrderDetailWithProductInfo>().HasNoKey().ToView("OrderDetailWithProductInfo", "Store");
 
             modelBuilder.Entity<CartRecordWithProductInfo>().HasNoKey().ToView("CartRecordWithProductInfo", "Store");
 

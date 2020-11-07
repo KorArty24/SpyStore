@@ -8,15 +8,14 @@ namespace SpyStore.Service.Tests.TestClasses.Base
 {
     public abstract class BaseTestClass : IDisposable{
         protected string ServiceAddress = "http://localhost:55882/";
-        protected string RootAdress = String.Empty;
+        protected string RootAddress = String.Empty;
         public virtual void Dispose()
         {
-            throw new NotImplementedException();
+           
         }
-    protected void ResetTheDatabase()
+        protected void ResetTheDatabase()
         {
-            SampleDataInitializer.InitializeData(
-                new StoreContextFactory().CreateDbContext(null));
+            SampleDataInitializer.InitializeData(new StoreContextFactory().CreateDbContext(null));
         }
 
     }

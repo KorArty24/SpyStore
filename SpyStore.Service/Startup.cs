@@ -95,7 +95,7 @@ namespace SpyStore.Service
                         .CreateScope())
                     {
                         var context =
-                            serviceScope.ServiceProvider.GetRequiredService<Dal.EfStructures.StoreContext>();
+                            serviceScope.ServiceProvider.GetRequiredService<StoreContext>();
                         SampleDataInitializer.InitializeData(context);
 
                     }
