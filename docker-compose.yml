@@ -1,6 +1,14 @@
 version: '3.4'
+networks:
+    default:
+        external:
+            name: network
 
 services:
+    
+  nginx:
+    container_name: nginx
+    image: nginx:latest
   db:
     image: "mcr.microsoft.com/mssql/server:2017-latest"
     ports:
@@ -10,6 +18,11 @@ services:
        ACCEPT_EULA: "Y"
        MSSQL_PID: "Express"
   spystore.service:
+    
+    environment:
+        - VIRTUAL_HOST=localhost
+        - LETSENCRYPT_HOST=localhost
+        - LETSENCRYPT_EMAIL=admin@hostname.com
     image: ${DOCKER_REGISTRY-}spystoreservice
     ports:
       - "55882:80"
